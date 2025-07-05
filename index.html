@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АвтоКаталог</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Наш Автосалон</h1>
+    </header>
+
+    <main id="car-list">
+        </main>
+<main id="car-list">
+        </main>
+
+    <section id="car-details-section" style="display: none;">
+        <button id="back-to-list-button">← Назад к списку</button>
+        <div id="car-details">
+            </div>
+
+        <div id="credit-calculator">
+            <h2>Кредитный Калькулятор</h2>
+            <div class="calculator-input-group">
+                <label for="loan-amount">Стоимость автомобиля:</label>
+                <input type="number" id="loan-amount" readonly> </div>
+            <div class="calculator-input-group">
+                <label for="down-payment">Первоначальный взнос (KZT):</label>
+                <input type="number" id="down-payment" value="0" min="0">
+            </div>
+            <div class="calculator-input-group">
+                <label for="loan-term">Срок кредита (лет):</label>
+                <input type="number" id="loan-term" value="5" min="1" max="10">
+            </div>
+            <div class="calculator-input-group">
+                <label for="interest-rate">Годовая процентная ставка (%):</label>
+                <input type="number" id="interest-rate" value="15" step="0.1" min="0.1" max="100">
+            </div>
+            <button id="calculate-button">Рассчитать</button>
+            <div id="payment-result">
+                <h3>Ежемесячный платеж: <span id="monthly-payment">0 KZT</span></h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Наш Автосалон</p>
+    </footer>
+    <footer>
+        <p>&copy; 2025 Наш Автосалон</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

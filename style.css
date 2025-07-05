@@ -1,0 +1,240 @@
+/* Общие стили для всего документа */
+body {
+    font-family: Arial, sans-serif; /* Устанавливаем шрифт */
+    margin: 0; /* Убираем стандартные отступы браузера */
+    background-color: #f4f4f4; /* Светло-серый фон */
+    color: #333; /* Цвет текста */
+    line-height: 1.6; /* Межстрочный интервал для лучшей читаемости */
+}
+
+/* Стили для шапки (header) */
+header {
+    background-color: #007bff; /* Синий фон */
+    color: white; /* Белый текст */
+    padding: 1rem 0; /* Внутренние отступы сверху и снизу */
+    text-align: center; /* Выравнивание текста по центру */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень для объема */
+}
+
+header h1 {
+    margin: 0; /* Убираем стандартный отступ у заголовка */
+    font-size: 1.8rem; /* Размер шрифта */
+}
+
+/* Стили для основной части страницы (main) со списком автомобилей */
+main {
+    padding: 1rem; /* Внутренние отступы со всех сторон */
+    max-width: 900px; /* Максимальная ширина содержимого, чтобы не было слишком широко на больших экранах */
+    margin: 1rem auto; /* Выравнивание по центру и отступы сверху/снизу */
+}
+
+/* Стили для подвала (footer) */
+footer {
+    text-align: center; /* Выравнивание текста по центру */
+    padding: 1rem; /* Внутренние отступы */
+    background-color: #333; /* Темно-серый фон */
+    color: white; /* Белый текст */
+    position: relative; /* Чтобы footer был внизу, если контента мало */
+    bottom: 0;
+    width: 100%;
+}
+
+/* Стили для каждой карточки автомобиля */
+.car-card {
+    background-color: white; /* Белый фон карточки */
+    border-radius: 8px; /* Скругленные углы */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Легкая тень */
+    margin-bottom: 1.5rem; /* Отступ снизу для разделения карточек */
+    overflow: hidden; /* Обрезает содержимое, если оно выходит за границы */
+    display: flex; /* Используем flexbox для расположения элементов внутри карточки */
+    flex-direction: column; /* Элементы будут располагаться столбиком */
+    cursor: pointer; /* Курсор в виде указателя, намекая на интерактивность */
+    transition: transform 0.2s ease-in-out; /* Плавная анимация при наведении */
+}
+
+.car-card:hover {
+    transform: translateY(-5px); /* Приподнимаем карточку при наведении */
+}
+
+.car-image {
+    width: 100%; /* Изображение на всю ширину карточки */
+    height: 200px; /* Фиксированная высота изображения */
+    object-fit: cover; /* Изображение будет обрезаться, чтобы заполнить область, без искажений */
+    border-top-left-radius: 8px; /* Скругленные углы сверху слева */
+    border-top-right-radius: 8px; /* Скругленные углы сверху справа */
+}
+
+.car-info {
+    padding: 1rem; /* Внутренние отступы для текста внутри карточки */
+}
+
+.car-info h2 {
+    margin-top: 0; /* Убираем верхний отступ у заголовка */
+    margin-bottom: 0.5rem; /* Небольшой отступ снизу */
+    color: #007bff; /* Синий цвет для заголовка */
+    font-size: 1.5rem;
+}
+
+.car-info p {
+    margin-bottom: 0.5rem; /* Небольшие отступы между параграфами */
+    font-size: 0.95rem;
+}
+
+.details-button {
+    display: block; /* Кнопка занимает всю доступную ширину */
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #28a745; /* Зеленый цвет для кнопки */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 1rem; /* Отступ сверху от текста */
+    transition: background-color 0.2s ease-in-out; /* Плавная анимация цвета */
+}
+
+.details-button:hover {
+    background-color: #218838; /* Цвет кнопки при наведении */
+}
+
+/* Адаптивность: для экранов шире 600px делаем карточки в два столбца */
+@media (min-width: 600px) {
+    main {
+        display: grid; /* Используем сетку */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Автоматически размещаем колонки */
+        gap: 1.5rem; /* Отступы между карточками */
+    }
+}/* Стили для страницы деталей автомобиля и калькулятора */
+#car-details-section {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 1rem auto;
+    max-width: 800px; /* Максимальная ширина для страницы деталей */
+}
+
+#back-to-list-button {
+    background-color: #6c757d; /* Серый цвет */
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-bottom: 1.5rem; /* Отступ от кнопки до деталей */
+    transition: background-color 0.2s ease-in-out;
+}
+
+#back-to-list-button:hover {
+    background-color: #5a6268;
+}
+
+/* Стили для блока деталей автомобиля */
+#car-details {
+    display: flex;
+    flex-direction: column; /* Элементы в столбик на мобильных */
+    gap: 1rem;
+    margin-bottom: 2rem; /* Отступ от деталей до калькулятора */
+}
+
+#car-details img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+#car-details h2 {
+    color: #007bff;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+#car-details p {
+    margin-bottom: 0.5rem;
+}
+
+/* Адаптивность для деталей: на широких экранах изображение слева, текст справа */
+@media (min-width: 768px) {
+    #car-details {
+        flex-direction: row; /* Элементы в ряд */
+        align-items: flex-start; /* Выравнивание по верху */
+    }
+    #car-details img {
+        width: 40%;
+        margin-right: 1.5rem;
+    }
+    #car-details .info-block { /* Добавим этот класс через JS для текстового блока */
+        width: 60%;
+    }
+}
+
+
+/* Стили для кредитного калькулятора */
+#credit-calculator {
+    background-color: #e9ecef; /* Светло-серый фон для калькулятора */
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+#credit-calculator h2 {
+    text-align: center;
+    color: #007bff;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+.calculator-input-group {
+    margin-bottom: 1rem;
+}
+
+.calculator-input-group label {
+    display: block; /* Метка на отдельной строке */
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.calculator-input-group input[type="number"] {
+    width: calc(100% - 1.2rem); /* Ширина поля ввода (100% минус padding) */
+    padding: 0.6rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#calculate-button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #007bff; /* Синий цвет для кнопки калькулятора */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#calculate-button:hover {
+    background-color: #0056b3;
+}
+
+#payment-result {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #d4edda; /* Светло-зеленый фон для результата */
+    border: 1px solid #28a745; /* Зеленая рамка */
+    border-radius: 5px;
+    color: #155724; /* Темно-зеленый текст */
+}
+
+#monthly-payment {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #007bff; /* Синий цвет для суммы платежа */
+}
