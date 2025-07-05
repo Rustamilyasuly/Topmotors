@@ -1,24 +1,53 @@
 /* Общие стили для всего документа */
 body {
-    font-family: Arial, sans-serif; /* Устанавливаем шрифт */
-    margin: 0; /* Убираем стандартные отступы браузера */
-    background-color: #f4f4f4; /* Светло-серый фон */
-    color: #333; /* Цвет текста */
-    line-height: 1.6; /* Межстрочный интервал для лучшей читаемости */
+    font-family: 'Arial', sans-serif; /* Можно будет изменить на Google Font позже */
+    margin: 0;
+    background-color: #e0e6eb; /* Более мягкий светло-серый фон */
+    color: #333;
+    line-height: 1.6;
 }
 
 /* Стили для шапки (header) */
 header {
-    background-color: #007bff; /* Синий фон */
-    color: white; /* Белый текст */
-    padding: 1rem 0; /* Внутренние отступы сверху и снизу */
-    text-align: center; /* Выравнивание текста по центру */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень для объема */
+    background-color: #1a4133; /* Темно-зеленый цвет из логотипа */
+    color: white;
+    padding: 0.8rem 1rem; /* Уменьшим padding, чтобы логотип был виден */
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15); /* Чуть более выраженная тень */
 }
 
 header h1 {
-    margin: 0; /* Убираем стандартный отступ у заголовка */
-    font-size: 1.8rem; /* Размер шрифта */
+    margin: 0;
+    font-size: 1.8rem;
+    color: white; /* Убедимся, что заголовок белый */
+    .header-content {
+    display: flex; /* Используем Flexbox для выравнивания логотипа и заголовка */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    justify-content: center; /* Выравнивание по центру по горизонтали */
+    max-width: 900px; /* Ограничим ширину контента в шапке */
+    margin: 0 auto; /* Центрируем контент */
+    flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку на маленьких экранах */
+}
+
+.logo {
+    height: 60px; /* Высота логотипа, можно настроить */
+    margin-right: 15px; /* Отступ справа от логотипа до текста */
+    /* Если логотип круглый и ты хочешь его еще более круглым, можно добавить: */
+    /* border-radius: 50%; */
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        flex-direction: column; /* На очень маленьких экранах логотип и текст будут в столбик */
+    }
+    .logo {
+        margin-right: 0;
+        margin-bottom: 10px; /* Отступ под логотипом */
+    }
+    header h1 {
+        font-size: 1.5rem; /* Немного уменьшим размер заголовка на мобильных */
+    }
+}
 }
 
 /* Стили для основной части страницы (main) со списком автомобилей */
@@ -69,9 +98,9 @@ footer {
 }
 
 .car-info h2 {
-    margin-top: 0; /* Убираем верхний отступ у заголовка */
-    margin-bottom: 0.5rem; /* Небольшой отступ снизу */
-    color: #007bff; /* Синий цвет для заголовка */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #28a745; /* Зеленый цвет для заголовка */
     font-size: 1.5rem;
 }
 
@@ -81,17 +110,21 @@ footer {
 }
 
 .details-button {
-    display: block; /* Кнопка занимает всю доступную ширину */
+    display: block;
     width: 100%;
     padding: 0.8rem;
-    background-color: #28a745; /* Зеленый цвет для кнопки */
+    background-color: #28a745; /* Зеленый цвет */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    margin-top: 1rem; /* Отступ сверху от текста */
-    transition: background-color 0.2s ease-in-out; /* Плавная анимация цвета */
+    margin-top: 1rem;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.details-button:hover {
+    background-color: #218838; /* Чуть темнее зеленый при наведении */
 }
 
 .details-button:hover {
@@ -147,7 +180,7 @@ footer {
 }
 
 #car-details h2 {
-    color: #007bff;
+    color: #28a745; /* Зеленый цвет */
     font-size: 1.8rem;
     margin-top: 0;
     margin-bottom: 0.5rem;
@@ -182,7 +215,7 @@ footer {
 
 #credit-calculator h2 {
     text-align: center;
-    color: #007bff;
+    color: #28a745; /* Зеленый цвет */
     margin-top: 0;
     margin-bottom: 1.5rem;
 }
@@ -209,7 +242,7 @@ footer {
     display: block;
     width: 100%;
     padding: 0.8rem;
-    background-color: #007bff; /* Синий цвет для кнопки калькулятора */
+    background-color: #007bff; /* Оставим синий, как универсальный цвет действия */
     color: white;
     border: none;
     border-radius: 5px;
@@ -217,6 +250,10 @@ footer {
     font-size: 1.1rem;
     margin-top: 1.5rem;
     transition: background-color 0.2s ease-in-out;
+}
+
+#calculate-button:hover {
+    background-color: #0056b3;
 }
 
 #calculate-button:hover {
@@ -236,5 +273,5 @@ footer {
 #monthly-payment {
     font-size: 1.6rem;
     font-weight: bold;
-    color: #007bff; /* Синий цвет для суммы платежа */
+    color: #28a745; /* Зеленый цвет для суммы платежа */
 }
