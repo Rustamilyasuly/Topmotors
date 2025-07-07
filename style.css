@@ -16,11 +16,7 @@ header {
     box-shadow: 0 3px 6px rgba(0,0,0,0.15); /* Чуть более выраженная тень */
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    color: white; /* Убедимся, что заголовок белый */
-    .header-content {
+.header-content {
     display: flex; /* Используем Flexbox для выравнивания логотипа и заголовка */
     align-items: center; /* Выравнивание по центру по вертикали */
     justify-content: center; /* Выравнивание по центру по горизонтали */
@@ -30,24 +26,36 @@ header h1 {
 }
 
 .logo {
-    height: 60px; /* Высота логотипа, можно настроить */
+    height: 70px; /* Увеличим базовую высоту логотипа для десктопа */
     margin-right: 15px; /* Отступ справа от логотипа до текста */
-    /* Если логотип круглый и ты хочешь его еще более круглым, можно добавить: */
-    /* border-radius: 50%; */
+    max-width: 100%; /* Убедимся, что логотип не вылезает за пределы родителя */
+    height: auto; /* Сохраняем пропорции */
 }
 
-@media (max-width: 480px) {
-    .header-content {
-        flex-direction: column; /* На очень маленьких экранах логотип и текст будут в столбик */
-    }
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) { /* Для экранов до 768px (планшеты и мобильные) */
     .logo {
-        margin-right: 0;
-        margin-bottom: 10px; /* Отступ под логотипом */
+        height: 50px; /* Уменьшаем высоту логотипа на мобильных */
+        margin-right: 0; /* Убираем отступ справа, так как будет в столбик */
+        margin-bottom: 10px; /* Добавляем отступ снизу */
+    }
+    .header-content {
+        flex-direction: column; /* Элементы в шапке будут располагаться в столбик */
+        text-align: center;
     }
     header h1 {
-        font-size: 1.5rem; /* Немного уменьшим размер заголовка на мобильных */
+        font-size: 1.5rem; /* Немного уменьшим размер заголовка */
     }
 }
+
+/* Если нужно еще сильнее уменьшить на очень маленьких экранах */
+@media (max-width: 480px) {
+    .logo {
+        height: 40px; /* Еще меньше на очень маленьких телефонах */
+    }
+    header h1 {
+        font-size: 1.3rem;
+    }
 }
 
 /* Стили для основной части страницы (main) со списком автомобилей */
@@ -191,7 +199,7 @@ footer {
 }
 
 /* Адаптивность для деталей: на широких экранах изображение слева, текст справа */
-@media (min-width: 768px) {
+@media (min-width: 768px) { /* Это правило для ЭКРАНОВ БОЛЬШЕ 768px */
     #car-details {
         flex-direction: row; /* Элементы в ряд */
         align-items: flex-start; /* Выравнивание по верху */
@@ -200,9 +208,24 @@ footer {
         width: 40%;
         margin-right: 1.5rem;
     }
-    #car-details .info-block { /* Добавим этот класс через JS для текстового блока */
+    #car-details .info-block {
         width: 60%;
     }
+}
+
+/* Для экранов меньше 768px (мобильных), car-details должен быть в column по умолчанию */
+#car-details {
+    display: flex;
+    flex-direction: column; /* Элементы в столбик на мобильных */
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+#car-details img {
+    width: 100%; /* Изображение занимает всю ширину на мобильных */
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 
