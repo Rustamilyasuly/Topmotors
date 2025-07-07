@@ -34,7 +34,7 @@ const cars = [
         model: 'X5 Plus',
         year: 2025,
         price: 8800000, // Цена в тенге
-        image: 'https://via.placeholder.com/600x400?text=Toyota+Camry',
+        image: 'https://iili.io/F0XXscu.png',
         description: 'Элегантный и надежный седан бизнес-класса. Идеальный выбор для города и дальних поездок, обеспечивающий комфорт и уверенность на дороге.'
     },
 ];
